@@ -563,15 +563,15 @@ class ProfitAndLoss extends owl.Component {
     }
     sumGrossProfit(op_inc, cor) {
         /**
-         * Calculates the sum of values in an array of objects by a specified key.
+         * Calculates Gross Profit = Revenue - Cost of Revenue.
          *
-         * @param {Array} data - Array of objects containing numeric values.
-         * @param {string} key - The key to access the numeric value in each object.
-         * @returns {number} The sum of the numeric values.
+         * @param {string} op_inc - The Cost of Revenue (expense_direct_cost) formatted string.
+         * @param {string} cor - The Revenue (income) formatted string.
+         * @returns {number} Gross Profit (Revenue minus Cost of Revenue).
          */
-         const stringValue = cor;
-         const floatValue = parseFloat(stringValue.replace(/,/g, ''));
-        return parseFloat(op_inc) + floatValue;
+        const revenue = parseFloat(cor.replace(/,/g, ''));
+        const cogs = parseFloat(op_inc.replace(/,/g, ''));
+        return revenue - cogs;
     }
     async applyComparisonYear(){
         this.state.comparison = this.period_year.el.value
